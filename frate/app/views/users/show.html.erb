@@ -1,28 +1,36 @@
-<% if logged_in? %>
-    <h1>Hey <%= current_user.name %>!</h1>
-<%end%>
+
+ <h1>Hey <%= @user.name %>!</h1>
 
 
-<h2>Your friends: </h2>
-<% @friends.each do |friend| %>
-<li>
-<%= friend.name %>
-</li>
+
+<h2>Your matches: </h2>
+<% @users.each do |user| %>
+  <% if user.love_choice == @user.love_choice %>
+  <% if user.food_choice == @user.food_choice %>
+    <% if @user != user %>
+      <li>
+    <%= (link_to user.name, user)%>
+      </li>
+    <% end%>
+  <% end%>
+<% end %>
 <% end %>
 
 
 
-<h2>These arent your friends: </h2>
-<% @not_friending.each do |user| %>
-<li>
-<%= link_to user.name, user %>
-<%= form_for user, url: { action: "update" } do |f|  %>
-<%= f.hidden_field :name %>
-<%= f.submit "Add friend" %>
-</li>
-<% end%>
-<% end%>
-
-<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
-    <input type=submit value='logout'>
+<h2>If you feel like we were wrong, make new friends here!: </h2>
+  <% @not_friending.each do |user| %> 
+     <% if user.id != @user.id %>       
+        <li>
+     <%= (link_to user.name, user) %>
+       <%= form_for user, url: { action: "update" } do |f|  %>
+      <%= f.hidden_field :name %>
+      <%= f.submit "Add friend" %>
+        </li>
+    <% end %>  
   <% end %>
+<% end %>
+<br>
+<%= link_to "All Users", users_path %>
+
+

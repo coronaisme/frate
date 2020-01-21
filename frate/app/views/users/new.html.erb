@@ -45,6 +45,12 @@
 <%= f.label :bio %>:
 <%= f.text_area :bio %><br>
 
+<%= f.label :favourite_food %>:
+<%= f.select :food_choice, options_for_select = {"Italian" => 1, "Chinese" => 2, "Mexican" => 3, "Thai" => 4, "Indian" => 5, "Japanese or Sushi" => 6, "Mediterranean" => 7, "Other" => 8}, :class => 'genForm_dropBox' %> </br>
+
+<%= f.label :are_you_looking_for_love_or_friendship? %> Tick the box for Love:
+<%= f.check_box :love_choice %> <br />
+
 <%= f.label :password%>:
 <%= f.password_field :password%><br>
 
