@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.text :bio
       t.integer :food_choice
       t.boolean :love_choice
+      t.integer :rating
     end
   end
 end

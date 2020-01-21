@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :matches
   resources :users
+  resources :reviews
   
   get 'homes/home_page'
 
