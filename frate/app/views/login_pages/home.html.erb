@@ -1,1 +1,57 @@
-<h1>Frate</h1>
+<!doctype html>
+<html lang="en">
+
+<head>
+
+<link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+        <style>
+    body {
+    margin: auto;
+    width: 37%;
+    padding: 10px;
+    position: relative;
+    top: 40vh;
+    left: 10vw;
+    background-image: url('https://images.unsplash.com/photo-1500565534308-0db60f7116f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80');
+    background-size:  100%;
+    font-family: 'Oswald', sans-serif;
+  }
+  h1 {
+  color: white;
+  font-size: 100px;
+}
+h3 {
+  color: white;
+}
+  </style>
+
+    <title>Frate</title>
+</head>
+ 
+<body>
+    <h1>Frate</h1>
+    <h3>Love or Friendship?</h3>
+
+
+<%= link_to("Login", '/users/new', method: :get, class: "btn btn-primary btn-lg") %>
+<%= link_to("Sign Up", '/users/index', method: :get, class: "btn btn-secondary btn-lg") %>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
