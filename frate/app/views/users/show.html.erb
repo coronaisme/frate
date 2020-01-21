@@ -1,4 +1,8 @@
-<h1>Hey <%= @user.name %>!</h1>
+<% if logged_in? %>
+    <h1>Hey <%= current_user.name %>!</h1>
+<%end%>
+
+
 <h2>Your friends: </h2>
 <% @friends.each do |friend| %>
 <li>
@@ -6,12 +10,6 @@
 </li>
 <% end %>
 
-<h2>You are friends with: </h2>
-<% @friendes.each do |friende| %>
-<li>
-<%= friende.name %>
-</li>
-<% end %>
 
 
 <h2>These arent your friends: </h2>
@@ -24,3 +22,7 @@
 </li>
 <% end%>
 <% end%>
+
+<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+    <input type=submit value='logout'>
+  <% end %>

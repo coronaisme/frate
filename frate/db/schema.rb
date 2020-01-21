@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_17_233346) do
+ActiveRecord::Schema.define(version: 2020_01_21_184316) do
 
   create_table "matches", force: :cascade do |t|
     t.integer "friend_id"
@@ -21,12 +21,11 @@ ActiveRecord::Schema.define(version: 2020_01_17_233346) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.string "password_digest"
     t.integer "age"
     t.text "bio"
     t.integer "food_choice"
     t.boolean "love_choice"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
 end
