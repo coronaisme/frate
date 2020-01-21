@@ -20,12 +20,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @friends = @user.friends 
     @friendes = @user.friendes 
-    #@not_friending = @user.not_friending
+    @not_friending = @user.not_friends
   end
 
   def update
     @user = User.find(params[:id])
-    User.find_by(user_params).followers << @user
+    User.find_by(user_params).friends << @user
     redirect_to '/users/#{@user.id}'
   end
 

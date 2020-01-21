@@ -1,0 +1,26 @@
+<h1>Hey <%= @user.name %>!</h1>
+<h2>Your friends: </h2>
+<% @friends.each do |friend| %>
+<li>
+<%= friend.name %>
+</li>
+<% end %>
+
+<h2>You are friends with: </h2>
+<% @friendes.each do |friende| %>
+<li>
+<%= friende.name %>
+</li>
+<% end %>
+
+
+<h2>These arent your friends: </h2>
+<% @not_friending.each do |user| %>
+<li>
+<%= link_to user.name, user %>
+<%= form_for user, url: { action: "update" } do |f|  %>
+<%= f.hidden_field :name %>
+<%= f.submit "Add friend" %>
+</li>
+<% end%>
+<% end%>
