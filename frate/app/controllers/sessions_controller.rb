@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
- 
+   before_action :authorized, except: [:new, :create]
+   before_action :current_user, except: [:new, :create]
 
     def new
     end
@@ -7,11 +8,21 @@ class SessionsController < ApplicationController
     def create
       @user = User.find_by(name: params[:name])
       if @user && @user.authenticate(params[:password])
-         sessions[:user_id] = @user.id
-         redirect_to 
+         session[:user_id] = @user.id
+         redirect_to @user
       else
+         if @user == nil
+            flash[:notice] = 'User not found.'
+         else
+            flash[:notice] = "Wrong password."
+         end
          redirect_to '/login'
       end
+   end
+
+   def destroy
+      session[:user_id] = nil
+      redirect_to homes_path
    end
 
   end
