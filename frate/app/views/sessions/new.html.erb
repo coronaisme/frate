@@ -17,14 +17,15 @@
     body {
     margin: auto;
     width: 37%;
+    padding: 10px;
     position: relative;
-    top: 19vh;
+    top: 30vh;
     font-family: 'Oswald', sans-serif;
     border-style: groove;
     padding: 15px;
   }
   h1 {
-    font-size: 40px;
+    font-size: 80px
   }
   </style>
 
@@ -32,33 +33,21 @@
 </head>
  
 <body>
+<h1>Login:</h1>
 
-<h1>Sign Up</h1><br>
-<%= form_for @user do |f| %>
-
-<%= f.label :name %>: 
-<%= f.text_field :name %><br>
-
-<%= f.label :age %>:
-<%= f.number_field :age %><br>
-
-<%= f.label :bio %>:
-<%= f.text_area :bio %><br>
-
-<%= f.label :password%>:
-<%= f.password_field :password%><br>
-
-<%= f.label :password_confirmation %>:
-<%= f.password_field :password_confirmation %>
-
-<br>
-<%= f.submit "Create a Profile" %>
+<%= form_for '/login' do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+  
+    <%= f.submit "log in" %>
     </br>
     </br>
-    <%= link_to("Or Login", '/login', method: :get, class: "btn btn-secondary btn-lg") %>
-    <% end%>  
-    
-     <!-- Optional JavaScript -->
+     <%= link_to("Or Sign Up", '/users/new', method: :get, class: "btn btn-secondary btn-md") %>
+    <% end %>
+    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
