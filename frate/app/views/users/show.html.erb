@@ -56,7 +56,6 @@
 
 
 <% if @current_user.id == params[:id].to_i%>
-<h1>Hey <%= @user.name %>!</h1>
 <h2>If you feel like we were wrong, make new friends here!: </h2>
   <% @not_friending.each do |user| %> 
      <% if user.id != @user.id %>       
@@ -71,7 +70,7 @@
   <% end %>
   
   <%else%>
-  <h1><%= @user.name %>!</h1>
+  <%= link_to("Rate #{@user.name}", new_user_review_path(@user), method: :get, class: "btn btn-secondary btn-lg") %>
   </br> <%= link_to("My Profile", @current_user, method: :get, class: "btn btn-primary btn-lg") %>
 <% end %>
 <br>

@@ -24,10 +24,10 @@ class User < ApplicationRecord
     #   @@all
     # end
   
-    def average_rating
-        average = self.rating.sum / self.rating.size.to_f
-        return average
-    end
+    # def average_rating
+    #     average = self.rating.sum / self.rating.size.to_f
+    #     return average
+    # end
 
 
 
