@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
    end
 
     def authorized
-        redirect_to homes_path if !logged_in?
+        redirect_to '/homes/home_page' if !logged_in?
     end
 
 

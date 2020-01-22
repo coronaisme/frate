@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :matches
   resources :users
   resources :reviews
+  resources :sessions
   
   get 'homes/home_page'
 
