@@ -133,10 +133,10 @@ bio: <%= @user.bio %>
 
 <% if @current_user.id != params[:id].to_i %>
  <h2>Leave a review for <%= @user.name %></h2>
-<%=  form_for @user do |f| %>
+<%=  form_for @user.name do |f| %>
 <%= f.text_area :reviews %>
 <br>
-<%= f.submit %>
+<%= f.submit "Post Review" %>
 
 <% end %>
 <% end %>

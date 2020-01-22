@@ -10,13 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_21_223024) do
+ActiveRecord::Schema.define(version: 2020_01_22_221737) do
 
   create_table "matches", force: :cascade do |t|
     t.integer "friend_id"
     t.integer "friende_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "reviewer"
+    t.integer "reviewee"
   end
 
   create_table "users", force: :cascade do |t|
