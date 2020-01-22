@@ -4,4 +4,5 @@ class ReviewsController < ApplicationController
         @user = User.find(params[:id])
     end
 
+    
 end
