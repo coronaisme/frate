@@ -30,6 +30,10 @@ class UsersController < ApplicationController
     @friendes = @user.friendes 
     @not_friending = @user.not_friends
   end
+
+  def edit
+    @user = User.find(params[:id])
+  end
   
   def update #to add a friend, might change this to like or something
     @user = User.find(params[:id])

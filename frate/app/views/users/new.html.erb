@@ -63,6 +63,14 @@
     </br>
     <%= link_to("Or Login", '/login', method: :get, class: "btn btn-secondary btn-lg") %>
     <% end%>  
+
+    <% if @performance.errors.any? %>
+    <ul>
+      <% @performance.errors.full_messages.each do |e| %>
+        <li style="color:red;"><%= e %></li>
+      <% end %>
+    </ul>
+  <% end %>
     
      <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
