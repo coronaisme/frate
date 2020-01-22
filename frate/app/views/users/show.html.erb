@@ -50,7 +50,7 @@
 		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(https://us.123rf.com/450wm/arbuzu/arbuzu1607/arbuzu160700095/60765606-letter-f-heart-icon-design-template-elements.jpg?ver=6);"></a>
 	        <ul class="list-unstyled components mb-5">
             <li>
-              <a href="#">My Profile</a>
+              <%= link_to("My Profile", @current_user, method: :get) %>
           </li>
 	          <li>
 	              <%= link_to "All Users", users_path %>
@@ -118,9 +118,6 @@ bio: <%= @user.bio %>
     <% end %>  
   <% end %>
   <% end %>
-  
-  <%else%>
-  </br> <%= link_to("My Profile", @current_user, method: :get, class: "btn btn-primary btn-lg") %>
 <% end %>
 <br>
 
