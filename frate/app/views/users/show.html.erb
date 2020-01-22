@@ -18,7 +18,7 @@
 
 <%= @current_user %>
 
-<% if @current_user.id == params[:id].to_i%>
+<% if @current_user.id == params[:id].to_i%> <!-- checks if user is on their own page -->
 <h2>If you feel like we were wrong, make new friends here!: </h2>
   <% @not_friending.each do |user| %> 
      <% if user.id != @user.id %>       
