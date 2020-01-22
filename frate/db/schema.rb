@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_01_21_223024) do
     t.text "bio"
     t.integer "food_choice"
     t.boolean "love_choice"
+    t.integer "rating"
     t.string "password_confirmation"
   end
 

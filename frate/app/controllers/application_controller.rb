@@ -19,4 +19,5 @@ class ApplicationController < ActionController::Base
         redirect_to homes_path if !logged_in?
     end
 
+
 end
