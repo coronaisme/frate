@@ -115,7 +115,6 @@
   <% end %>
   
   <%else%>
-  <%= link_to("Rate #{@user.name}", new_user_review_path(@user), method: :get, class: "btn btn-secondary btn-lg") %>
   </br> <%= link_to("My Profile", @current_user, method: :get, class: "btn btn-primary btn-lg") %>
 <% end %>
 <br>
