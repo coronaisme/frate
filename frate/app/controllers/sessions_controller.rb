@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
       if @user && @user.authenticate(params[:password])
          session[:user_id] = @user.id
          redirect_to @user
-        
       else
          if @user == nil
             flash[:notice] = 'User not found.'

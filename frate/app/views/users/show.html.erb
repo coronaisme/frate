@@ -78,6 +78,11 @@
 <%= link_to "All Users", users_path, class: "btn btn-secondary btn-lg" %><br>
 
 <% if @current_user.id == params[:id].to_i %>
+<%= link_to "logout", {:controller=> 'sessions', :action=> "destroy"}, :method=> :delete%><br>
+<% end%>
+
+
+<% if @current_user.id == params[:id].to_i %>
   <%= link_to "Delete account", user_path, method: "DELETE" %>
 <% end %>
 
