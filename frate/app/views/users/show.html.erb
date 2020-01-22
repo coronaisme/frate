@@ -33,12 +33,15 @@
  
 <body>
 
- 
-<h1>Hey <%= @user.name %>!</h1>
+ <% if @current_user.id == params[:id].to_i%>
+<h1>Hey <%= @current_user.name %>!</h1>
+<% else %> 
+<h1><%= @user.name %>'s Profile</h1>
+<% end %>
 
 
 
-<h2>Your matches: </h2>
+<h2><%= @user.name %>'s matches: </h2>
 <% @users.each do |user| %>
   <% if user.love_choice == @user.love_choice %>
   <% if user.food_choice == @user.food_choice %>
