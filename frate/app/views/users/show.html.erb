@@ -83,6 +83,11 @@
 <% else %> 
 <h1><%= @user.name %>'s Profile</h1>
 <% end %>
+<br>
+age: <%= @user.age %>
+<br>
+bio: <%= @user.bio %>
+<br><br>
 
 
 
@@ -99,9 +104,9 @@
 <% end %>
 <% end %>
 
-
+<br>
 <% if @current_user.id == params[:id].to_i%>
-<h2>If you feel like we were wrong, make new friends here!: </h2>
+<h2>If you feel like we were wrong, make new friends here: </h2><br>
   <% @not_friending.each do |user| %> 
      <% if user.id != @user.id %>       
         <li>
@@ -122,19 +127,22 @@
 
 
 <% if @current_user.id == params[:id].to_i %>
-  <%= link_to "Delete account", user_path, method: "DELETE" %>
+  <%= link_to "delete account", user_path, method: "DELETE" %>
 <% end %>
 </br>
 <% if @current_user.id == params[:id].to_i %>
 <%= link_to 'Edit account', edit_user_path(@user) %>
 <% end %>
 
-</div>
+<% if @current_user.id != params[:id].to_i %>
+ <h2>Leave a review for <%= @user.name %></h2>
+<%=  form_for @user do |f| %>
+<%= f.text_area :reviews %>
+<br>
+<%= f.submit %>
 
-<script src="sidebar-01/js/jquery.min.js"></script>
-<script src="sidebar-01/js/popper.js"></script>
-<script src="sidebar-01/js/bootstrap.min.js"></script>
-<script src="sidebar-01/js/main.js"></script>
+<% end %>
+<% end %>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
