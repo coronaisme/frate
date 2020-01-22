@@ -35,14 +35,18 @@
 <body>
 <h1>Login:</h1>
 
-<%= form_for '/login' do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+<% if flash[:notice] %>
+  <strong style='color:red;'><%= flash[:notice] %></strong>
+<% end %>
+
+<%= form_with url: '/login' do  %>
+    <%= label_tag :name %>
+    <%= text_field_tag :name %>
   
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
   
-    <%= f.submit "log in" %>
+    <%= submit_tag "log in" %>
     </br>
     </br>
      <%= link_to("Or Sign Up", '/users/new', method: :get, class: "btn btn-secondary btn-md") %>

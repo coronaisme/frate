@@ -36,6 +36,12 @@ class UsersController < ApplicationController
     User.find_by(user_params).friends << @user
     redirect_to '/users/#{@user.id}'
   end
+
+  def destroy
+    @current_user.destroy
+    session[:user_id] = nil
+    redirect_to '/homes/home_page'
+  end
   
   private
   

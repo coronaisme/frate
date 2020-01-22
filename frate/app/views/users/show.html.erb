@@ -75,7 +75,11 @@
   </br> <%= link_to("My Profile", @current_user, method: :get, class: "btn btn-primary btn-lg") %>
 <% end %>
 <br>
-<%= link_to "All Users", users_path, class: "btn btn-secondary btn-lg" %>
+<%= link_to "All Users", users_path, class: "btn btn-secondary btn-lg" %><br>
+
+<% if @current_user.id == params[:id].to_i %>
+  <%= link_to "Delete account", user_path, method: "DELETE" %>
+<% end %>
 
 
 
