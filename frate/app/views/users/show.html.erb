@@ -16,7 +16,9 @@
 <% end %>
 <% end %>
 
-
+<% if @current_user %>
+<%= link_to("My Profile", @current_user, method: :get, class: "btn btn-primary btn-lg") %>
+<% end %>
 
 <h2>If you feel like we were wrong, make new friends here!: </h2>
   <% @not_friending.each do |user| %> 
