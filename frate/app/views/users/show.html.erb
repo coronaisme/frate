@@ -70,7 +70,7 @@
               <a href="#">My Messages</a>
 	          </li>
 	          <li>
-              <a href="#">My Reviews</a>
+              <%= link_to "My Reviews", "/users/#{@user.id}/reviews" %>
 	          </li>
             <li>
             <% if @current_user.id == params[:id].to_i %>

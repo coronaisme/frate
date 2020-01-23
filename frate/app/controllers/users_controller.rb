@@ -37,30 +37,21 @@ class UsersController < ApplicationController
     # @user.avatar.attach(params[:avatar])
   end
 
-  def add_friend # or change this to add_friend, either way we need a custom route
+  def add_friend 
     @user = User.find(params[:id])
     User.find_by(user_params).friends << @user
     redirect_to @user
   end
 
-  def update #we either need to change this to #update or see update
+  def update 
     @user = User.find(params[:id])
    if  @user.update(user_params)
-    redirect_to '/users/#{@user.id}'
+    redirect_to "/users/#{@user.id}"
    else
     render :edit
    end
   end
-  
-  # def add_friend # or change this to add_friend, either way we need a custom route
-  #   @user = User.find(params[:id])
-  #   User.find_by(user_params).friends << @user
-  #   redirect_to @user
-  # end
-
-  # def add_friend
-  #   byebug
-  # end
+ 
 
   def destroy
     @current_user.destroy
