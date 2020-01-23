@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   get '/users/:id/reviews', to: 'reviews#index'
   
-
+  patch '/users/:id', to: 'users#add_friend'
 
   get 'login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
