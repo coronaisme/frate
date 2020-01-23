@@ -38,8 +38,18 @@
     margin-top: -40px;
   }
 
+  #photo_logo {
+    margin-top: 25px;
+  }
+
+  #number {
+    color: #ff0066;
+  }
+
   h1 {
-    font-size: 50px
+    font-size: 90px;
+    text-align: center;
+    color: #ff0066;
   }
   </style>
 
@@ -56,7 +66,8 @@
                   <h3 id="frate"><%= link_to("Frate", analytics_path(@analytics), method: :get) %></h3>
 
           <br>
-              <ul class="list-unstyled components mb-5">
+                  <ul class="list-unstyled components mb-5">
+            
             <li>
               <%= link_to("My Profile", @current_user, method: :get) %>
           </li>
@@ -83,19 +94,27 @@
       <div id="content" >
 
 
+      <h1><img src="https://us.123rf.com/450wm/arbuzu/arbuzu1607/arbuzu160700095/60765606-letter-f-heart-icon-design-template-elements.jpg?ver=6"; width="80", height="80", class="img logo rounded-circle mb-5", id="photo_logo"> Frate </h1>
+      <br>
+      <br>
 
+     
 
-      <div class="mainpage">
-<h1>Users: </h1>
-<ul>
-<% @users.each do |u| %>
-<li>
-<p><%= link_to u.name, user_path(u) %></p>
-</li>
-<% end %>
-</ul>
+<section class="container-fluid px-0">
+<div class="row align-items-center">
+    <div class="col-lg-6">
+        <div id="headingGroup" class="text-black text-center d-none d-lg-block mt-5">
+        <h2> • We have <%= User.users_count %> Users at the Moment </h2>
+        <h2> • The Average Age is <%= User.average_age %> </h2>
+        <h2> • We have <%= User.users_count %> Users at the Moment </h2>
+
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <img class="img-fluid" src="https://images.unsplash.com/photo-1466979939565-131c4b39a51b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="">
+    </div>
 </div>
-
+</section>
 
 <script src="sidebar-01/js/jquery.min.js"></script>
 <script src="sidebar-01/js/popper.js"></script>
@@ -113,4 +132,3 @@
 </body>
 
 </html>
-

@@ -32,6 +32,11 @@
     position: relative;
   }
 
+#frate {
+  color: #ff0066;
+  text-align: center;
+  margin-top: -40px;
+}
 
   h1 {
     font-size: 50px
@@ -46,9 +51,12 @@
 
 <div class="wrapper d-flex align-items-stretch">
 			<nav id="sidebar">
-				<div class="p-4 pt-5">
-		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(https://us.123rf.com/450wm/arbuzu/arbuzu1607/arbuzu160700095/60765606-letter-f-heart-icon-design-template-elements.jpg?ver=6);"></a>
-	        <ul class="list-unstyled components mb-5">
+        <div class="p-4 pt-5">
+          <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(https://us.123rf.com/450wm/arbuzu/arbuzu1607/arbuzu160700095/60765606-letter-f-heart-icon-design-template-elements.jpg?ver=6);"></a>
+          <h3 id="frate"><%= link_to("Frate", analytics_path(@analytics), method: :get) %></h3>
+
+          <br>
+          <ul class="list-unstyled components mb-5">
             <li>
               <%= link_to("My Profile", @current_user, method: :get) %>
           </li>
@@ -56,8 +64,8 @@
 	              <%= link_to "All Users", users_path %>
             </li>
             <li>
-              <a href="#">Messages</a>
-          </li>
+              <a href="#">My Messages</a>
+	          </li>
 	          <li>
               <a href="#">My Reviews</a>
 	          </li>
@@ -79,16 +87,24 @@
 
       <div class="mainpage">
  <% if @current_user.id == params[:id].to_i%>
-<h1>Hey <%= @current_user.name %>!</h1>
+<h1>Your Profile</h1>
+<h2>- <%= @current_user.name %> -</h2>
+  <%= link_to "Delete Account", user_path, method: "DELETE", class: "btn btn-outline-dark" %>
+<%= link_to("Edit Account", edit_user_path(@user), class: "btn btn-outline-dark") %>
+<br>
+<br>
 <% else %> 
 <h1><%= @user.name %>'s Profile</h1>
 <% end %>
 <br>
-age: <%= @user.age %>
+<strong>age: </strong><%= @user.age %>
 <br>
-bio: <%= @user.bio %>
+<strong>bio: </strong><%= @user.bio %>
 <br><br>
 
+<% if @user.avatar.attached? %>
+ <image src="<%=(url _for(@user.avatar))%>">
+ <% end %>
 
 
 <h2><%= @user.name %>'s matches: </h2>
@@ -120,16 +136,6 @@ bio: <%= @user.bio %>
   <% end %>
 <% end %>
 <br>
-
-
-
-<% if @current_user.id == params[:id].to_i %>
-  <%= link_to "delete account", user_path, method: "DELETE" %>
-<% end %>
-</br>
-<% if @current_user.id == params[:id].to_i %>
-<%= link_to 'Edit account', edit_user_path(@user) %>
-<% end %>
 
 <% if @current_user.id != params[:id].to_i %>
  <h2>Leave a review for <%= @user.name %></h2>

@@ -51,6 +51,9 @@
 <%= f.label :are_you_looking_for_love_or_friendship? %> Tick the box for Love:
 <%= f.check_box :love_choice %> <br />
 
+<%= f.label :profile_photo %>
+<%= f.file_field :avatar %><br>
+
 <%= f.label :password%>:
 <%= f.password_field :password%><br>
 
@@ -64,9 +67,9 @@
     <%= link_to("Or Login", '/login', method: :get, class: "btn btn-secondary btn-lg") %>
     <% end%>  
 
-    <% if @performance.errors.any? %>
+    <% if @user.errors.any? %>
     <ul>
-      <% @performance.errors.full_messages.each do |e| %>
+      <% @user.errors.full_messages.each do |e| %>
         <li style="color:red;"><%= e %></li>
       <% end %>
     </ul>

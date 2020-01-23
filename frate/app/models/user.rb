@@ -5,6 +5,7 @@ class User < ApplicationRecord
     has_many :friends, through: :friending_users
     has_secure_password
     has_many :reviews
+    has_one_attached :avatar
     # attr_accessor :user
 
     # @@all = []
@@ -28,6 +29,21 @@ class User < ApplicationRecord
     #     average = self.rating.sum / self.rating.size.to_f
     #     return average
     # end
+
+
+    def self.users_count
+        User.all.count
+    end
+
+    def self.average_age
+        average = 0.0
+        User.all.each do |t|
+            average += t.age
+           
+            end
+        (average / User.all.count).round
+    end
+
 
 
 

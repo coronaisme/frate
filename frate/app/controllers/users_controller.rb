@@ -33,6 +33,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    @user.avatar.attach(params[:avatar])
   end
   
   def update #to add a friend, might change this to like or something
@@ -50,7 +51,7 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:name, :age, :bio, :food_choice, :love_choice, :password, :password_confirmation)
+    params.require(:user).permit(:name, :age, :bio, :food_choice, :love_choice, :avatar, :password, :password_confirmation)
   end
   
 end

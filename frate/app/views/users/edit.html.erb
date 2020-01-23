@@ -32,6 +32,11 @@
     position: relative;
   }
 
+  #frate {
+    color: #ff0066;
+    text-align: center;
+    margin-top: -40px;
+  }
 
   h1 {
     font-size: 50px
@@ -48,7 +53,11 @@
 			<nav id="sidebar">
 				<div class="p-4 pt-5">
 		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(https://us.123rf.com/450wm/arbuzu/arbuzu1607/arbuzu160700095/60765606-letter-f-heart-icon-design-template-elements.jpg?ver=6);"></a>
-	        <ul class="list-unstyled components mb-5">
+                  <h3 id="frate"><%= link_to("Frate", analytics_path(@analytics), method: :get) %></h3>
+
+          <br>
+                  <ul class="list-unstyled components mb-5">
+            
             <li>
               <%= link_to("My Profile", @current_user, method: :get) %>
           </li>
@@ -56,7 +65,7 @@
 	              <%= link_to "All Users", users_path %>
             </li>
             <li>
-              <a href="#">Messages</a>
+              <a href="#">My Messages</a>
           </li>
 	          <li>
               <a href="#">My Reviews</a>
@@ -94,11 +103,8 @@
 <%= f.label :are_you_looking_for_love_or_friendship? %> Tick the box for Love:
 <%= f.check_box :love_choice %> <br />
 
-<%= f.label :change_password%>:
-<%= f.password_field :password%><br>
-
-<%= f.label :password_confirmation %>:
-<%= f.password_field :password_confirmation %>
+<%= f.label :profile_photo %>
+<%= f.file_field :avatar %><br>
 
 <br>
 <%= f.submit "Update your Profile" %>
