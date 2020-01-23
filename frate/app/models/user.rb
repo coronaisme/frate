@@ -12,6 +12,9 @@ class User < ApplicationRecord
 
     has_secure_password
     
+    has_many :reviews
+    has_one_attached :avatar
+    validates :name, presence: true, uniqueness: true
   
 
     def not_friends
