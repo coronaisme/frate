@@ -52,6 +52,10 @@ class UsersController < ApplicationController
     redirect_to @user
   end
 
+  def add_friend
+    byebug
+  end
+
   def destroy
     @current_user.destroy
     session[:user_id] = nil
