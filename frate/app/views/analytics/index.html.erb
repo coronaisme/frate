@@ -101,13 +101,13 @@
               <a href="#">My Messages</a>
           </li>
 	          <li>
-              <a href="#">My Reviews</a>
+              <%= link_to "My Reviews", "/users/#{@current_user.id}/reviews" %>
 	          </li>
             <li>
-            <% if @current_user.id == params[:id].to_i %>
+            <% if @current_user %>
                 <%= link_to "Logout", {:controller=> 'sessions', :action=> "destroy"}, :method=> :delete%><br>
-            <% end%>
             </li>
+            <% end%>
 	        </ul>
 
 	      </div>
