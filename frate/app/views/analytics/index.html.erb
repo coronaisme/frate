@@ -26,16 +26,22 @@
 
   .mainpage {
     font-family: 'Oswald', sans-serif;
-    margin: auto;
-    width: 95%;
-    padding: 10px;
-    position: relative;
   }
 
   #frate {
     color: #ff0066;
     text-align: center;
     margin-top: -40px;
+  }
+  #home {
+    color: white;
+    text-align: center;
+    margin-top: -10px;
+  }
+
+  #facts {
+    font-size: 50px;
+    color: #ff0066;
   }
 
   #photo_logo {
@@ -46,11 +52,26 @@
     color: #ff0066;
   }
 
-  h1 {
+  #title {
     font-size: 90px;
     text-align: center;
     color: #ff0066;
   }
+
+#headingGroup span {
+    color: #EA1C2C;
+}
+
+#headingGroup h1 {
+    font-weight: 125;
+    font-size: 4rem;
+}
+
+#info {
+    font-weight: 100;
+    font-size: 4rem;
+}
+
   </style>
 
     <title>Frate</title>
@@ -64,6 +85,7 @@
 				<div class="p-4 pt-5">
 		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(https://us.123rf.com/450wm/arbuzu/arbuzu1607/arbuzu160700095/60765606-letter-f-heart-icon-design-template-elements.jpg?ver=6);"></a>
                   <h3 id="frate"><%= link_to("Frate", analytics_path(@analytics), method: :get) %></h3>
+                  <h6 id="home">(Home)<h6>
 
           <br>
                   <ul class="list-unstyled components mb-5">
@@ -94,20 +116,21 @@
       <div id="content" >
 
 
-      <h1><img src="https://us.123rf.com/450wm/arbuzu/arbuzu1607/arbuzu160700095/60765606-letter-f-heart-icon-design-template-elements.jpg?ver=6"; width="80", height="80", class="img logo rounded-circle mb-5", id="photo_logo"> Frate </h1>
-      <br>
+      <h1 id="title"><img src="https://us.123rf.com/450wm/arbuzu/arbuzu1607/arbuzu160700095/60765606-letter-f-heart-icon-design-template-elements.jpg?ver=6"; width="80", height="80", class="img logo rounded-circle mb-5", id="photo_logo"> Frate </h1>
       <br>
 
-     
+
 
 <section class="container-fluid px-0">
 <div class="row align-items-center">
     <div class="col-lg-6">
         <div id="headingGroup" class="text-black text-center d-none d-lg-block mt-5">
-        <h2> • We have <%= User.users_count %> Users at the Moment </h2>
-        <h2> • The Average Age is <%= User.average_age %> </h2>
-        <h2> • We have <%= User.users_count %> Users at the Moment </h2>
-
+        <h1 class="">LOVE<span>/</span>OR<span>/</span>FRIENDSHIP?</h1>
+        <h1 class="">LOVE<span>/</span>OR<span>/</span>FRIENDSHIP?</h1>
+        <h1 class="">LOVE<span>/</span>OR<span>/</span>FRIENDSHIP?</h1>
+        <h1 class="">LOVE<span>/</span>OR<span>/</span>FRIENDSHIP?</h1>
+        <h1 class="">LOVE<span>/</span>OR<span>/</span>FRIENDSHIP?</h1>
+        <h1 class="">LOVE<span>/</span>OR<span>/</span>FRIENDSHIP?</h1>
         </div>
     </div>
     <div class="col-lg-6">
@@ -115,6 +138,32 @@
     </div>
 </div>
 </section>
+<div id="headingGroup" class="text-black text-center d-none d-lg-block mt-5">
+
+</div>
+
+<section class="container-fluid px-0">
+        <div class="row align-items-center content">
+            <div class="col-md-6 order-2 order-md-1">
+                <img src="https://images.unsplash.com/photo-1530742104769-90b81f3cee50?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80" alt="" class="img-fluid">
+            </div>
+            <div class="col-md-6 text-center order-1 order-md-2">
+                <div class="row justify-content-center">
+                <div id="headingGroup" class="text-black text-center d-none d-lg-block mt-5">
+                  <h1 class=""> Fun<span>/</span>Frate<span>/</span>Facts: </h1>
+                  <br>
+                  <h1> •We have <%= User.users_count %> Users at the Moment! </h1>
+                         
+                  <h1>  •The Average Age is <%= User.average_age %>! </h1>
+                        
+                   <h1> •Most popular food choice now is Italian! </h1>
+                </div>
+            </div>
+                    
+                </div>
+            </div>
+        </div>
+
 
 <script src="sidebar-01/js/jquery.min.js"></script>
 <script src="sidebar-01/js/popper.js"></script>

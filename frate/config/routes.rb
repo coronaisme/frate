@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'analytics/index'
+  patch '/add_friend/:id', to: 'users#add_friend'
   resources :matches
   resources :users
   resources :reviews

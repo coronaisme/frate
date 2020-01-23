@@ -100,11 +100,13 @@
 <strong>age: </strong><%= @user.age %>
 <br>
 <strong>bio: </strong><%= @user.bio %>
-<br><br>
-
+<br>
 <% if @user.avatar.attached? %>
- <image src="<%=(url _for(@user.avatar))%>">
- <% end %>
+  <%= image_tag(@user.avatar) %>
+  <% end %>
+<br>
+<br>
+
 
 
 <h2><%= @user.name %>'s matches: </h2>
@@ -127,7 +129,7 @@
      <% if user.id != @user.id %>       
         <li>
      <%= (link_to user.name, user) %>
-       <%= form_for user, url: { action: "update" } do |f|  %>
+       <%= form_for user, url: { action: "/add_friend/#{@user.id}" } do |f|  %>
       <%= f.hidden_field :name %>
       <%= f.submit "Add friend" %>
         </li>

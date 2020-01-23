@@ -34,12 +34,16 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @user.avatar.attach(params[:avatar])
-  end
+   end
   
   def update #to add a friend, might change this to like or something
     @user = User.find(params[:id])
-    User.find_by(user_params).friends << @user
+    @user.update(user_params)
     redirect_to '/users/#{@user.id}'
+  end
+
+  def add_friend
+    byebug
   end
 
   def destroy
