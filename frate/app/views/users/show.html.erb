@@ -102,9 +102,7 @@
 <strong>bio: </strong><%= @user.bio %>
 <br><br>
 
-<% if @user.avatar.attached? %>
- <image src="<%=(url _for(@user.avatar))%>">
- <% end %>
+
 
 
 <h2><%= @user.name %>'s matches: </h2>
@@ -122,8 +120,10 @@
 
 <!-- Friends -->
 <h3><%= @user.name %> Friends :</h3><br>
-<% @user.friends.each do |friend| %>
-<%= friend.name %>
+<% @user.friendes.each do |friend| %>
+<li>
+<%= link_to friend.name, friend %>
+</li>
 <% end %>
 
 <br> <!-- Make New Friends -->
@@ -152,7 +152,12 @@
 
 <br>
 
-<%= link_to 'Write a review', '/reviews/new' %>
+<%= form_tag("/users/#{@user.id}/reviews") do %>
+<%= text_area_tag :content %>
+<br>
+<%= submit_tag "Enter" %>
+
+<% end %>
 <% end %>
 
 

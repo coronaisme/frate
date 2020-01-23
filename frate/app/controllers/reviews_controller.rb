@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
 
     def index  #all reviews associated with a certain user
         @reviews = Review.all
+        @user = User.find(params[:user_id])
         
     end
 
@@ -15,18 +16,24 @@ class ReviewsController < ApplicationController
 
     #save with strong params ?
     def create 
-        @review = Review.new(review_params)
+        # binding.pry
+        reviewer_id = session[:user_id]
+        reviewee_id = params[:id]
+        content = params[:content]
+        @review = Review.create!(reviewer_id: reviewer_id,
+        reviewee_id: reviewee_id, content: content)
+        
         if @review.save
-            redirect_to '/reviews'
+            redirect_to "/users/#{@review.reviewee_id}/reviews"
         else 
-            redirect_to '/users/4'
+            redirect_to '/users'
         end
     end
 
     private
 
     def review_params
-        params.require(:review).permit(:content)
+        #params.require(:review).permit(:content, :reviewee_id)
     end
     
 end

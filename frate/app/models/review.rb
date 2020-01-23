@@ -3,7 +3,7 @@ class Review < ApplicationRecord
     belongs_to :reviewee, class_name: 'User'
 
 
-
+    
 
 
     def not_reviewed

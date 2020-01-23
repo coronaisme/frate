@@ -1,16 +1,21 @@
 Rails.application.routes.draw do
-  get 'analytics/index'
-  resources :matches
-  resources :users
+  post '/users/:id/reviews', to: 'reviews#create'
+  resources :users do
+    resources :reviews
+    resources :matches
+  end
+
   resources :reviews
   resources :sessions
   resources :analytics
 
-
+  get 'analytics/index'
+  resources :matches
   get 'homes/home_page'
 
-post '/users/:id', to: 'reviews#create'
+  get '/users/:id/reviews', to: 'reviews#index'
   
+
 
   get 'login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

@@ -3,13 +3,6 @@ class User < ApplicationRecord
     has_many :friendes, through: :friended_users
     has_many :friending_users, foreign_key: :friende_id, class_name: 'Match'
     has_many :friends, through: :friending_users
-<<<<<<< HEAD
-    has_secure_password
-    has_many :reviews
-    has_one_attached :avatar
-    # attr_accessor :user
-=======
->>>>>>> 361e5d0ca08fd447c76c65ab8b1be976925bbddb
 
     has_many :reviewed_users, foreign_key: :reviewer_id, class_name: 'Review'
     has_many :reviewees, through: :reviewed_users

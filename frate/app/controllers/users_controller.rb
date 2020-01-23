@@ -29,7 +29,7 @@ class UsersController < ApplicationController
     @friends = @user.friends 
     @friendes = @user.friendes 
     @not_friending = @user.not_friends
-    
+    @review = Review.new
   end
 
   def edit
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   def update #to add a friend, might change this to like or something
     @user = User.find(params[:id])
     User.find_by(user_params).friends << @user
-    redirect_to '/users/#{@user.id}'
+    redirect_to @user
   end
 
   def destroy
