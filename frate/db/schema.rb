@@ -40,6 +40,12 @@ ActiveRecord::Schema.define(version: 2020_01_22_180918) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "reviewer"
+    t.integer "reviewee"
+    t.text "content"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "password_digest"

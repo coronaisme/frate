@@ -3,33 +3,28 @@ class User < ApplicationRecord
     has_many :friendes, through: :friended_users
     has_many :friending_users, foreign_key: :friende_id, class_name: 'Match'
     has_many :friends, through: :friending_users
+<<<<<<< HEAD
     has_secure_password
     has_many :reviews
     has_one_attached :avatar
     # attr_accessor :user
+=======
+>>>>>>> 361e5d0ca08fd447c76c65ab8b1be976925bbddb
 
-    # @@all = []
+    has_many :reviewed_users, foreign_key: :reviewer_id, class_name: 'Review'
+    has_many :reviewees, through: :reviewed_users
+    has_many :reviewing_users, foreign_key: :reviewee_id, class_name: 'Review'
+    has_many :reviews, through: :reviewing_users, source: :reviewee
+
+    has_secure_password
+    
   
-    # def initialize(user)
-    #   @user = user
-    #   self.class.all << self
-    # end
 
     def not_friends
         @friending = self.friendes
         @users = User.all
         @not_friending = @users - @friending
     end
-  
-    # def self.all
-    #   @@all
-    # end
-  
-    # def average_rating
-    #     average = self.rating.sum / self.rating.size.to_f
-    #     return average
-    # end
-
 
     def self.users_count
         User.all.count
@@ -46,5 +41,11 @@ class User < ApplicationRecord
 
 
 
+    def not_reviewed
+        @reviewing = self.reviewees
+        @users = User.all
+        @not_reviewing = @users - @reviewing
+    end
+  
 
 end
