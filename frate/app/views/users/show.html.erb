@@ -137,7 +137,7 @@
      <% if user.id != @user.id %>       
         <li>
      <%= (link_to user.name, user) %>
-       <%= form_for user, url: { action: "/add_friend/#{@user.id}" } do |f|  %>
+       <%= form_for user, url: { action: "add_friend" } do |f|  %>
       <%= f.hidden_field :name %>
       <%= f.submit "Add friend" %>
         </li>
