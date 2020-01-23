@@ -84,12 +84,13 @@
 			<nav id="sidebar">
 				<div class="p-4 pt-5">
 		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(https://us.123rf.com/450wm/arbuzu/arbuzu1607/arbuzu160700095/60765606-letter-f-heart-icon-design-template-elements.jpg?ver=6);"></a>
-                  <h3 id="frate"><%= link_to("Frate", analytics_path(@analytics), method: :get) %></h3>
-                  <h6 id="home">(Home)<h6>
+                  <h3 id="frate">Frate</h3>
 
           <br>
                   <ul class="list-unstyled components mb-5">
-            
+                  <li>
+                  <%= link_to("Home", analytics_path(@analytics), method: :get) %>
+              </li>
             <li>
               <%= link_to("My Profile", @current_user, method: :get) %>
           </li>
@@ -150,13 +151,13 @@
             <div class="col-md-6 text-center order-1 order-md-2">
                 <div class="row justify-content-center">
                 <div id="headingGroup" class="text-black text-center d-none d-lg-block mt-5">
-                  <h1 class=""> Fun<span>/</span>Frate<span>/</span>Facts: </h1>
+                  <h1 class=""><strong> Fun<span>/</span>Frate<span>/</span>Facts: </strong></h1>
                   <br>
-                  <h1> •We have <%= User.users_count %> Users at the Moment! </h1>
+                  <h1> •We have <strong><%= User.users_count %></strong> Users at the Moment! </h1>
                          
-                  <h1>  •The Average Age is <%= User.average_age %>! </h1>
+                  <h1>  •The Average Age is <strong><%= User.average_age %></strong>! </h1>
                         
-                   <h1> •Most popular food choice now is Italian! </h1>
+                   <h1> •Most popular food choice now is <strong>Italian</strong>! </h1>
                 </div>
             </div>
                     

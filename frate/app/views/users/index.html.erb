@@ -31,12 +31,30 @@
     padding: 10px;
     position: relative;
   }
+  #title {
+    font-size: 90px;
+    text-align: center;
+    color: #ff0066;
+  }
+  #photo_logo {
+    margin-top: 25px;
+  }
+
+  #button {
+    color: #ff0066;
+  }
 
   #frate {
     color: #ff0066;
     text-align: center;
     margin-top: -40px;
   }
+  #grids {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 40px;
+    text-align: center;
+}
 
   h1 {
     font-size: 50px
@@ -53,11 +71,14 @@
 			<nav id="sidebar">
 				<div class="p-4 pt-5">
 		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(https://us.123rf.com/450wm/arbuzu/arbuzu1607/arbuzu160700095/60765606-letter-f-heart-icon-design-template-elements.jpg?ver=6);"></a>
-                  <h3 id="frate"><%= link_to("Frate", analytics_path(@analytics), method: :get) %></h3>
+          <h3 id="frate">Frate</h3>
 
           <br>
-              <ul class="list-unstyled components mb-5">
-            <li>
+                  <ul class="list-unstyled components mb-5">
+                  <li>
+                  <%= link_to("Home", analytics_path(@analytics), method: :get) %>
+              </li>
+              <li>
               <%= link_to("My Profile", @current_user, method: :get) %>
           </li>
 	          <li>
@@ -83,18 +104,26 @@
       <div id="content" >
 
 
+      <h1 id="title"><img src="https://us.123rf.com/450wm/arbuzu/arbuzu1607/arbuzu160700095/60765606-letter-f-heart-icon-design-template-elements.jpg?ver=6"; width="80", height="80", class="img logo rounded-circle mb-5", id="photo_logo"> All Frate Users: </h1>
+      <br>
 
-
-      <div class="mainpage">
-<h1>Users: </h1>
-<ul>
-<% @users.each do |u| %>
-<li>
-<p><%= link_to u.name, user_path(u) %></p>
-</li>
-<% end %>
-</ul>
-</div>
+   <section id="gallery">
+    <div class="container" id="grids">
+      <% @users.each do |u| %>
+      <div class="row ">
+          <div class="col s4 center">
+               <div class="card">
+                         <div class="card-body">
+                        <h5 class="card-title"><%= u.name %></h5>
+                        <p class="card-text">Age: <%= u.age %></p>
+                        <%= link_to("Click Profile", user_path(u), method: :get, class: "btn btn-outline-danger btn-sm") %>
+                    </div>
+                   </div>
+                 </div>
+               </div>
+           <% end %>
+   </div>
+</section>
 
 
 <script src="sidebar-01/js/jquery.min.js"></script>

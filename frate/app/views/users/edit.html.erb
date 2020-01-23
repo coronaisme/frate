@@ -53,12 +53,14 @@
 			<nav id="sidebar">
 				<div class="p-4 pt-5">
 		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(https://us.123rf.com/450wm/arbuzu/arbuzu1607/arbuzu160700095/60765606-letter-f-heart-icon-design-template-elements.jpg?ver=6);"></a>
-                  <h3 id="frate"><%= link_to("Frate", analytics_path(@analytics), method: :get) %></h3>
+          <h3 id="frate">Frate</h3>
 
           <br>
                   <ul class="list-unstyled components mb-5">
-            
-            <li>
+                  <li>
+                  <%= link_to("Home", analytics_path(@analytics), method: :get) %>
+              </li>
+              <li>
               <%= link_to("My Profile", @current_user, method: :get) %>
           </li>
 	          <li>
