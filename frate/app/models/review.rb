@@ -1,25 +1,15 @@
 class Review < ApplicationRecord
-    belongs_to :user
+    belongs_to :reviewer, class_name: 'User'
+    belongs_to :reviewee, class_name: 'User'
 
-    # attr_accessor :user, :rating, :review
-  
-    # @@all = []
-  
-    # def initialize(user, rating, review)
-    #   @user = user
-    #   @rating = rating
-    #   @review = review
-    #   @@all << self
-    # end
 
-    # def self.all
-	# 	@@all
-	# end
+    
 
-# Reviews/Rating
-# Average rating
-# Goes below 2 destroy
-# Under 3 is 24hr ban
-# Highest rated page
+
+    def not_reviewed
+        @reviewing = self.reviewees
+        @users = User.all
+        @not_reviewing = @users - @reviewing
+    end
 
 end

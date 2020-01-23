@@ -125,14 +125,22 @@
 <% end %>
 <% end %>
 
-<br>
+<!-- Friends -->
+<h3><%= @user.name %> Friends :</h3><br>
+<% @user.friendes.each do |friend| %>
+<li>
+<%= link_to friend.name, friend %>
+</li>
+<% end %>
+
+<br> <!-- Make New Friends -->
 <% if @current_user.id == params[:id].to_i%>
 <h2>If you feel like we were wrong, make new friends here: </h2><br>
   <% @not_friending.each do |user| %> 
      <% if user.id != @user.id %>       
         <li>
      <%= (link_to user.name, user) %>
-       <%= form_for user, url: { action: "/add_friend/#{@user.id}" } do |f|  %>
+       <%= form_for user, url: { action: "add_friend" } do |f|  %>
       <%= f.hidden_field :name %>
       <%= f.submit "Add friend" %>
         </li>
@@ -142,15 +150,23 @@
 <% end %>
 <br>
 
+
+
+
+<!-- Make Review -->
 <% if @current_user.id != params[:id].to_i %>
  <h2>Leave a review for <%= @user.name %></h2>
-<%=  form_for @user do |f| %>
-<%= f.text_area :reviews %>
+
 <br>
-<%= f.submit %>
+
+<%= form_tag("/users/#{@user.id}/reviews") do %>
+<%= text_area_tag :content %>
+<br>
+<%= submit_tag "Enter" %>
 
 <% end %>
 <% end %>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
