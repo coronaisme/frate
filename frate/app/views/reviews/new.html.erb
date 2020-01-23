@@ -1,0 +1,9 @@
+<h1>Reviews are written here</h1>
+
+<%= form_for @review do |f| %>
+<%= f.label :content %>
+<%= f.text_area :content %>
+
+<%= f.submit "Make a review" %>
+<% end %>
+<br>

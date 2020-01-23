@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   
   get 'homes/home_page'
 
+post '/users/:id', to: 'reviews#create'
+  
 
   get 'login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

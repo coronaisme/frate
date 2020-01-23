@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_22_221737) do
+ActiveRecord::Schema.define(version: 2020_01_22_232859) do
 
   create_table "matches", force: :cascade do |t|
     t.integer "friend_id"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_01_22_221737) do
   create_table "reviews", force: :cascade do |t|
     t.integer "reviewer"
     t.integer "reviewee"
+    t.text "content"
   end
 
   create_table "users", force: :cascade do |t|

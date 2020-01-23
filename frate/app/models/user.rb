@@ -11,30 +11,19 @@ class User < ApplicationRecord
 
     has_secure_password
     
-    # attr_accessor :user
-
-    # @@all = []
   
-    # def initialize(user)
-    #   @user = user
-    #   self.class.all << self
-    # end
 
     def not_friends
         @friending = self.friendes
         @users = User.all
         @not_friending = @users - @friending
     end
-  
-    # def self.all
-    #   @@all
-    # end
-  
-    # def average_rating
-    #     average = self.rating.sum / self.rating.size.to_f
-    #     return average
-    # end
 
-
+    def not_reviewed
+        @reviewing = self.reviewees
+        @users = User.all
+        @not_reviewing = @users - @reviewing
+    end
+  
 
 end

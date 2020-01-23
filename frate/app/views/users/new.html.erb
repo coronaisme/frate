@@ -64,9 +64,9 @@
     <%= link_to("Or Login", '/login', method: :get, class: "btn btn-secondary btn-lg") %>
     <% end%>  
 
-    <% if @performance.errors.any? %>
+    <% if @user.errors.any? %>
     <ul>
-      <% @performance.errors.full_messages.each do |e| %>
+      <% @user.errors.full_messages.each do |e| %>
         <li style="color:red;"><%= e %></li>
       <% end %>
     </ul>

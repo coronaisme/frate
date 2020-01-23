@@ -104,7 +104,13 @@ bio: <%= @user.bio %>
 <% end %>
 <% end %>
 
-<br>
+<!-- Friends -->
+<h3><%= @user.name %> Friends :</h3><br>
+<% @user.friends.each do |friend| %>
+<%= friend.name %>
+<% end %>
+
+<br> <!-- Make New Friends -->
 <% if @current_user.id == params[:id].to_i%>
 <h2>If you feel like we were wrong, make new friends here: </h2><br>
   <% @not_friending.each do |user| %> 
@@ -122,24 +128,25 @@ bio: <%= @user.bio %>
 <br>
 
 
-
+<!-- Delete -->
 <% if @current_user.id == params[:id].to_i %>
   <%= link_to "delete account", user_path, method: "DELETE" %>
 <% end %>
 </br>
+<!-- Edit -->
 <% if @current_user.id == params[:id].to_i %>
 <%= link_to 'Edit account', edit_user_path(@user) %>
 <% end %>
 
+<!-- Make Review -->
 <% if @current_user.id != params[:id].to_i %>
  <h2>Leave a review for <%= @user.name %></h2>
-<%=  form_for @user.name do |f| %>
-<%= f.text_area :reviews %>
-<br>
-<%= f.submit "Post Review" %>
 
+<br>
+
+<%= link_to 'Write a review', '/reviews/new' %>
 <% end %>
-<% end %>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

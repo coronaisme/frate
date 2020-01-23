@@ -29,6 +29,7 @@ class UsersController < ApplicationController
     @friends = @user.friends 
     @friendes = @user.friendes 
     @not_friending = @user.not_friends
+    
   end
 
   def edit
