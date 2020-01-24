@@ -96,7 +96,7 @@
   text-align: center;
 }
 
-ul li {
+#others {
   width:33.333333%; 
   float:left;
 }
@@ -248,8 +248,9 @@ ul li {
 <% if @current_user.id == params[:id].to_i%>
 <h2>If you feel like we were wrong, make new friends here: </h2><br>
 
-  <% @not_friending.each do |user| %> 
-     <% if user.id != @user.id %>       
+<% @not_friending.each do |user| %> 
+  <% if user.id != @user.id %>       
+  <div id="others">
      <ul>   
      <li>
      <%= (link_to user.name, user) %>
@@ -258,11 +259,13 @@ ul li {
       <%= f.submit "Add friend" %>
         </li>
         </ul>
+        </div>
     <% end %>  
   <% end %>
   <% end %>
 <% end %>
-
+<br>
+<br>
 
 
 
@@ -282,8 +285,9 @@ ul li {
 
 
 <div class="row">
-  <div class="column"></div>
-  <div class="column"></div>
+        <p> </p>
+        <br>
+        <p> </p>
 </div>
 
     <!-- Optional JavaScript -->
