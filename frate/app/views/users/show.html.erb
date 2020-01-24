@@ -149,23 +149,25 @@
 <% end %>
 <br>
 
-
-
+<!-- button for reviews of user that isnt current user -->
+<% if @current_user.id != params[:id].to_i %>
+    <%= link_to "#{@user.name}'s Reviews",  "/users/#{params[:id].to_i}/reviews" %>
+<% end %>
 
 <!-- Make Review -->
 <% if @current_user.id != params[:id].to_i %>
-
- <h2>Leave a review for <%= @user.name %></h2>
-
-<br>
-
-<%= form_tag("/users/#{@user.id}/reviews") do %>
-<%= text_area_tag :content %>
-<br>
-<%= submit_tag "Enter" %>
-
+    <h2>Leave a review for <%= @user.name %></h2>
+  <br>
+      <%= form_tag("/users/#{@user.id}/reviews") do %>
+      <%= text_area_tag :content %>
+  <br>
+      <%= submit_tag "Enter" %>
+  <% end %>
 <% end %>
-<% end %>
+
+
+
+
 
 
     <!-- Optional JavaScript -->
