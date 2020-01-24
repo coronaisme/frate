@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     resources :matches
   end
 
+  delete 'analytics/index', to: 'sessions#destroy'
+  
+
   resources :reviews
   resources :sessions
   resources :analytics
