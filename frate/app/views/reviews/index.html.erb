@@ -61,7 +61,7 @@
                   <%= link_to("Home", analytics_path(@analytics), method: :get) %>
               </li>
               <li>
-              <%= link_to("My Profile", @current_user, method: :get) %>
+              <%= link_to("My Profile", current_user, method: :get) %>
           </li>
 	          <li>
 	              <%= link_to "All Users", users_path %>
@@ -70,7 +70,7 @@
               <a href="#">My Messages</a>
 	          </li>
 	          <li>
-              <%= link_to "My Reviews", "/users/#{@user.id}/reviews" %>
+              <%= link_to "My Reviews", "/users/#{current_user.id}/reviews" %>
 	          </li>
             <li>
             
@@ -89,15 +89,16 @@
 <h1>Reviews for <%= @user.name %></h1>
 
 <ul>
-<% @reviews.each do |r| %>
-<% if r.reviewee == @user  %>
-<li>
-<%= r.content %>
-</li>
-<% end %>
-<% end%>
+  <% @reviews.each do |r| %>
+    <% if r.reviewee == @user  %>
+      <li>
+        <%= r.content %><br>
+         <em>by, <%=begin r.reviewer.name rescue 'User profile has been deleted' end%> </em><br>
+      </li>
+    <% end %>
+  <% end %>
 </ul>
-
+    
 
 
 

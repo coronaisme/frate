@@ -1,10 +1,10 @@
 <h1>Reviews are written here</h1>
-
 <%= form_for @review do |f| %>
 <%= f.label :content %>
 <%= f.text_area :content %>
 <%= f.text_area :reviewee_id%>
 
 <%= f.submit "Make a review" %>
+<% end %>
 <% end %>
 <br>

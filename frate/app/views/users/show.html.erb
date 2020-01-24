@@ -49,8 +49,7 @@
 <body>
 
 
-<div class="wrapper d-flex align-items-stretch">
-			<nav id="sidebar">
+<div class="wrapper d-flex align-items-stretch">		<nav id="sidebar">
         <div class="p-4 pt-5">
           <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(https://us.123rf.com/450wm/arbuzu/arbuzu1607/arbuzu160700095/60765606-letter-f-heart-icon-design-template-elements.jpg?ver=6);"></a>
           <h3 id="frate">Frate</h3>
@@ -80,7 +79,7 @@
 	        </ul>
 
 	      </div>
-    	</nav>
+    	</nav>		
 
         <!-- Page Content  -->
       <div id="content" >
@@ -155,6 +154,7 @@
 
 <!-- Make Review -->
 <% if @current_user.id != params[:id].to_i %>
+
  <h2>Leave a review for <%= @user.name %></h2>
 
 <br>

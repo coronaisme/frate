@@ -43,6 +43,10 @@ class User < ApplicationRecord
         @users = User.all
         @not_reviewing = @users - @reviewing
     end
-  
+
+    # def show_reviewer_name
+    #     <h1>Reviews for <%= @user.name %></h1>
+        
+    # end
 
 end

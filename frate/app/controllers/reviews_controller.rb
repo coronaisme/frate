@@ -1,9 +1,8 @@
 class ReviewsController < ApplicationController
 
-    def index  #all reviews associated with a certain user
+    def index  
         @reviews = Review.all
-        @user = User.find(params[:user_id])
-        
+        @user = User.find(params[:user_id])  
     end
 
     def show # a single review? How/why do we want this
@@ -29,6 +28,7 @@ class ReviewsController < ApplicationController
             redirect_to '/users'
         end
     end
+
 
     private
 
