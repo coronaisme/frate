@@ -240,25 +240,15 @@
   
 
 
-
-
-<!-- Friends -->
-
-<h3><%= @user.name %> Friends :</h3><br>
-<% @user.friendes.each do |friend| %>
-<li>
-<%= link_to friend.name, friend %>
-</li>
-<% end %>
-
 <br> <!-- Make New Friends -->
 <% if @current_user.id == params[:id].to_i%>
-
 <h2>If you feel like we were wrong, make new friends here: </h2><br>
-  <% @not_friending.each do |user| %> 
-     <% if user.id != @user.id %>       
-        <li>
-  
+
+<% @not_friending.each do |user| %> 
+  <% if user.id != @user.id %>       
+  <div id="others">
+     <ul>   
+     <li>
      <%= (link_to user.name, user) %>
        <%= form_for user, url: { action: "add_friend" } do |f|  %>
       <%= f.hidden_field :name %>
@@ -271,20 +261,22 @@
   <% end %>
 <% end %>
 <br>
+<br>
 
-<!-- button for reviews of user that isnt current user -->
-<% if @current_user.id != params[:id].to_i %>
-    <%= link_to "#{@user.name}'s Reviews",  "/users/#{params[:id].to_i}/reviews" %>
-<% end %>
+
+
 
 <!-- Make Review -->
 <% if @current_user.id != params[:id].to_i %>
-    <h2>Leave a review for <%= @user.name %></h2>
+    <h2>Leave a review for <%= @user.name %>:</h2>
+   <!-- button for reviews of user that isnt current user -->
+    <%= link_to("See #{@user.name}'s Reviews", "/users/#{params[:id].to_i}/reviews", class: "btn btn-outline-danger btn-md",) %>
+  <br>
   <br>
       <%= form_tag("/users/#{@user.id}/reviews") do %>
       <%= text_area_tag :content %>
   <br>
-      <%= submit_tag "Enter" %>
+      <%= submit_tag "Enter", :class => "btn btn-outline-dark" %>
   <% end %>
 <% end %>
 
