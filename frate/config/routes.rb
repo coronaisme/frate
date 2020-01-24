@@ -11,8 +11,8 @@ Rails.application.routes.draw do
 
   patch '/add_friend_profile/:id', to: 'users#add_friend_profile'
 
-  patch '/remove_friend_profile/:id', to: 'users#remove_friend_profile'
-  post '/remove_friend_profile/:id', to: 'users#remove_friend_profile' 
+  get '/remove_friend/:id', to: 'users#delete'
+
   resources :reviews
   resources :sessions
   resources :analytics
