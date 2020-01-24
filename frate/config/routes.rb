@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   get 'analytics/index'
   resources :matches
-  get 'homes/home_page'
+  resources :homes
 
   get '/users/:id/reviews', to: 'reviews#index'
   

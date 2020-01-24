@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   def update #we either need to change this to #update or see update
     @user = User.find(params[:id])
    if  @user.update(user_params)
-    redirect_to '/users/#{@user.id}'
+    redirect_to @user
    else
     render :edit
    end

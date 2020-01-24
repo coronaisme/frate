@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
 
-def home_page
+def index
 end
 
 end
