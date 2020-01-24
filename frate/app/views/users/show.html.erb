@@ -101,6 +101,12 @@
   float:left;
 }
 
+#add_friend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 
   </style>
 
@@ -161,8 +167,18 @@
 
 <% else %> 
 <h1 id="title"><img src="https://us.123rf.com/450wm/arbuzu/arbuzu1607/arbuzu160700095/60765606-letter-f-heart-icon-design-template-elements.jpg?ver=6"; width="80", height="80", class="img logo rounded-circle mb-5", id="photo_logo"><%= @user.name %>'s Profile</h1>
+  <% if @current_user != @user && current_user.friendes.exclude?(@user)  %>       
+  <div id="add_friend" >
+       <%= form_for @current_user, url: { action: "add_friend_profile" } do |f|  %>
+        <%= f.hidden_field :name %>
+      <%= f.submit "Add friend", class:"btn btn-outline-danger btn-lg" %>
+        </div>
+    <% end %>  
+  <% end %>
 <% end %>
 <br>
+
+
 
 
 <div class="row">
@@ -281,8 +297,10 @@
   <% end %>
 <% end %>
 
-
-
+<!-- remove a friend -->
+<% if @current_user.id != params[:id].to_i %>
+<%= button_to "Remove this Friend", :controller => :users, :action => 'remove_friend' %>
+<% end %>
 
 
 

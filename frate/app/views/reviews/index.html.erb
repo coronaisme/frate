@@ -51,6 +51,36 @@
     margin-top: 25px;
   }
 
+   .speech-bubble {
+	position: relative;
+	background: #ffe6e6;
+  border-radius: .4em;
+  width: 50%;
+  margin-left: 20px;
+  text-align: center;
+  border-style: solid;
+  border-color: #D3D3D3;
+  padding: 1%;
+}
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 0;
+	height: 0;
+	border: 20px solid transparent;
+	border-right-color: #D3D3D3;
+	border-left: 0;
+	border-bottom: 0;
+	margin-top: -10px;
+	margin-left: -20px;
+}
+#buttonforp {
+  margin-left: 20px;
+  margin-bottom: 50px;
+}
+
   </style>
 
     <title>Frate</title>
@@ -100,20 +130,20 @@
       <br>
 
 
-<ul>
   <% @reviews.each do |r| %>
-    <% if r.reviewee == @user  %>
-      <li>
+        <% if r.reviewee == @user  %>
+        <br>
+        <div class="speech-bubble">
         <%= r.content %><br>
-         <em>by, <%=begin r.reviewer.name rescue 'User profile has been deleted' end%> </em><br>
-      </li>
+        <em>by, <%=begin r.reviewer.name rescue 'User profile has been deleted' end%> </em><br>
+        </div>
+      </br>
     <% end %>
   <% end %>
-</ul>
     
 
 <br>
-<%= link_to("Go back to #{@user.name}'s Profile", user_path(@user), class: "btn btn-outline-danger btn-md",) %>
+<%= link_to("Go back to #{@user.name}'s Profile", user_path(@user), class: "btn btn-outline-danger btn-md", id: "buttonforp") %>
 
 
     <!-- Optional JavaScript -->

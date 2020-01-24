@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   end
 
   delete 'analytics/index', to: 'sessions#destroy'
+  post '/users/:id', to: 'users#remove_friend'
+  get '/users/:id', to: 'users#remove_friend'
   
-
+  patch '/add_friend_profile/:id', to: 'users#add_friend_profile'
   resources :reviews
   resources :sessions
   resources :analytics

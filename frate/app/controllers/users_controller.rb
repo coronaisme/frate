@@ -51,6 +51,28 @@ class UsersController < ApplicationController
     render :edit
    end
   end
+  
+      #not working yet
+  # def remove_friend
+  #   @user = User.find(params[:id])
+  #   if current_user.id != params[:id].to_i 
+  #      if current_user.friendes.include?(@user) 
+  #         #  current_user.friendes.splice(@user) 
+  #          current_user.not_friends << @user
+          
+           
+  #       end 
+  #    end 
+  #   byebug
+  #    redirect_to "/users/#{current_user.id}"
+  # end
+
+  def add_friend_profile
+    @user = User.find(params[:id])
+    @current_user.friendes << @user
+    @current_user.friends << @user
+    redirect_to @user
+  end
  
 
   def destroy
