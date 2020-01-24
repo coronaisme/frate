@@ -52,41 +52,25 @@ class UsersController < ApplicationController
    end
   end
 
-      #not working yet
-  # def remove_friend
-  #   @user = User.find(params[:id])
-  #   if current_user.id != params[:id].to_i 
-  #      if current_user.friendes.include?(@user) 
-  #         #  current_user.friendes.splice(@user) 
-  #          current_user.not_friends << @user
-          
-           
-  #       end 
-  #    end 
-  #   byebug
-  #    redirect_to "/users/#{current_user.id}"
-  # end
+  
 
   def add_friend_profile
     @user = User.find(params[:id])
     @current_user.friendes << @user
-    @current_user.friends << @user
+    # @current_user.friends << @user  --- this adds current user as a friend to user which we dont neccesarily want
     redirect_to @user
   end
 
-  # def remove_friend_profile
+  
+ #working on this now
+
+  # def delete_friendship
   #   @user = User.find(params[:id])
-    
-  #   byebug
-  #   redirect_to @user
+  #   @current_user.friendes.destroy
+  #   redirect_to current_user
   # end
- 
-  def delete 
-    @user = User.find(params[:id])
-    @current_user.friendes.destroy
-    @current_user.friends.destroy
-    redirect_to current_user
-  end
+
+
 
   def destroy
     @current_user.destroy

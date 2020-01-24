@@ -11,7 +11,8 @@ Rails.application.routes.draw do
 
   patch '/add_friend_profile/:id', to: 'users#add_friend_profile'
 
-  get '/remove_friend/:id', to: 'users#delete'
+  get '/remove_friend/:id', to: 'users#delete_friendship'
+  patch '/remove_friend/:id', to: 'users#delete_friendship'
 
   resources :reviews
   resources :sessions

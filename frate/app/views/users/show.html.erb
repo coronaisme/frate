@@ -178,6 +178,12 @@
 <% end %>
 <br>
 
+<div id="add_friend" >
+<% if @current_user.id != params[:id].to_i && @current_user.friendes.include?(@user) %>
+<%= submit_tag "Delete friend", class:"btn btn-outline-danger btn-lg" %>
+<% end %>
+</div>
+<br>
 
 
 
@@ -297,13 +303,6 @@
   <% end %>
 <% end %>
 
-<!-- remove a friend -->
-<% if @current_user != @user && current_user.friendes.include?(@user)  %>
-<% @current_user.friendes.each do |friendship| %><br /> 
-    <%= friendship.name %> 
-    <%= link_to "Remove", friendship, method: :delete %>
-<%end %>
-<% end %>
 
 
 
