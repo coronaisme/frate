@@ -38,9 +38,70 @@
   margin-top: -40px;
 }
 
+#buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#welcome {
+  color: #F5F5F5;
+  text-align: center;
+  margin-top: 30px;
+  font-weight: 300;
+}
+
+#yourname {
+  text-align: center;
+  color: #ff0066;
+}
+
+#title {
+    font-size: 80px;
+    text-align: center;
+    color: #ff0066;
+  }
+  #photo_logo {
+    margin-top: 25px;
+  }
+
   h1 {
     font-size: 50px
   }
+
+  .userimage {
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+
+  .column {
+  float: left;
+  width: 50%;
+  display: block;
+  
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+#grids {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+  text-align: center;
+}
+
+#others {
+  width:33.333333%; 
+  float:left;
+}
+
+
   </style>
 
     <title>Frate</title>
@@ -53,6 +114,7 @@
         <div class="p-4 pt-5">
           <a href="#" class="img logo rounded-circle mb-5" style="background-image: url(https://us.123rf.com/450wm/arbuzu/arbuzu1607/arbuzu160700095/60765606-letter-f-heart-icon-design-template-elements.jpg?ver=6);"></a>
           <h3 id="frate">Frate</h3>
+          <h4 id="welcome">Hello <%= @current_user.name %> </h4>
 
           <br>
                   <ul class="list-unstyled components mb-5">
@@ -72,10 +134,8 @@
               <%= link_to "My Reviews", "/users/#{@user.id}/reviews" %>
 	          </li>
             <li>
-            <% if @current_user.id == params[:id].to_i %>
-                <%= link_to "Logout", {:controller=> 'sessions', :action=> "destroy"}, :method=> :delete%><br>
-            <% end%>
-            </li>
+            <%= link_to("Logout", homes_path(@homes), method: :get) %>
+             </li>
 	        </ul>
 
 	      </div>
@@ -89,40 +149,98 @@
 
       <div class="mainpage">
  <% if @current_user.id == params[:id].to_i%>
-<h1>Your Profile</h1>
-<h2>- <%= @current_user.name %> -</h2>
+ <h1 id="title"><img src="https://us.123rf.com/450wm/arbuzu/arbuzu1607/arbuzu160700095/60765606-letter-f-heart-icon-design-template-elements.jpg?ver=6"; width="80", height="80", class="img logo rounded-circle mb-5", id="photo_logo"> Your Profile </h1>
+<h2 id="yourname">- <%= @current_user.name %> -</h2> <br>
+<div id="buttons">
   <%= link_to "Delete Account", user_path, method: "DELETE", class: "btn btn-outline-dark" %>
-<%= link_to("Edit Account", edit_user_path(@user), class: "btn btn-outline-dark") %>
+<%= link_to("Edit Account", edit_user_path(@user), class: "btn btn-outline-dark",) %>
+</div>
 <br>
 <br>
+
+
 <% else %> 
-<h1><%= @user.name %>'s Profile</h1>
+<h1 id="title"><img src="https://us.123rf.com/450wm/arbuzu/arbuzu1607/arbuzu160700095/60765606-letter-f-heart-icon-design-template-elements.jpg?ver=6"; width="80", height="80", class="img logo rounded-circle mb-5", id="photo_logo"><%= @user.name %>'s Profile</h1>
 <% end %>
 <br>
-<strong>age: </strong><%= @user.age %>
-<br>
-<strong>bio: </strong><%= @user.bio %>
-<br>
-<% if @user.avatar.attached? %>
-  <%= image_tag(@user.avatar) %>
+
+
+<div class="row">
+  <div class="column">
+  <% if @user.avatar.attached? %>
+  <img src="<%= (url_for(@user.avatar)) %>"; width="90%", height="90%">
   <% end %>
+  </div>
+  <div class="column">
+    <h3><strong>Age: </strong> <%= @user.age %> </h3>
+    <br>
+    <h3><strong>Bio: </strong> <%= @user.bio %></h3>
+    <br>
+  </div>
+</div>
+<br>
+<br>
 <br>
 <br>
 
 
+<div class="row">
+<div class="column">
+  <section id="gallery">
+  <h2>  Matches: </h2>
+  <br>
+  <div class="container" id="grids">
+  <% @users.each do |user| %>
+    <% if user.love_choice == @user.love_choice %>
+    <% if user.food_choice == @user.food_choice %>
+      <% if @user != user %>
+  <div class="row ">
+      <div class="col s4 center">
+           <div class="card">
+                     <div class="card-body">
+                    <h5 class="card-title"><%= user.name %></h5>
+                    <%= link_to("Click Profile", user_path(user), method: :get, class: "btn btn-outline-danger btn-sm") %>
+                </div>
+               </div>
+             </div>
+           </div>
+       <% end %>
+       <% end%>
+       <% end %>
+       <% end %>
+</div>
+</section>
+  </div>
 
-<h2><%= @user.name %>'s matches: </h2>
-<% @users.each do |user| %>
-  <% if user.love_choice == @user.love_choice %>
-  <% if user.food_choice == @user.food_choice %>
-    <% if @user != user %>
-      <li>
-    <%= (link_to user.name, user)%>
-      </li>
-    <% end%>
-  <% end%>
-<% end %>
-<% end %>
+  <div class="column">
+  <section id="gallery">
+  <h2> Friends:</h2><br>
+  <br>
+  <div class="container" id="grids">
+  <% @user.friendes.each do |friend| %>
+  <div class="row ">
+      <div class="col s4 center">
+           <div class="card">
+                     <div class="card-body">
+                    <h5 class="card-title"><%= friend.name %></h5>
+                    <%= link_to("Click Profile", user_path(friend), method: :get, class: "btn btn-outline-danger btn-sm") %>
+                </div>
+               </div>
+             </div>
+           </div>
+    
+       <% end %>
+</div>
+</section>
+</div>
+</div>
+
+<br>
+<br>
+  
+
+
+
 
 <!-- Friends -->
 
@@ -146,6 +264,8 @@
       <%= f.hidden_field :name %>
       <%= f.submit "Add friend" %>
         </li>
+        </ul>
+        </div>
     <% end %>  
   <% end %>
   <% end %>
@@ -172,6 +292,12 @@
 
 
 
+
+<div class="row">
+        <p> </p>
+        <br>
+        <p> </p>
+</div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

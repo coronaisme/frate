@@ -33,6 +33,14 @@
     text-align: center;
     margin-top: -40px;
   }
+
+  #welcome {
+    color: #F5F5F5;
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 300;
+  }
+
   #home {
     color: white;
     text-align: center;
@@ -64,13 +72,15 @@
 
 #headingGroup h1 {
     font-weight: 125;
-    font-size: 4rem;
+    font-size: 2.5rem;
 }
 
 #info {
     font-weight: 100;
-    font-size: 4rem;
+    font-size: 2.5rem;
 }
+
+
 
   </style>
 
@@ -84,6 +94,7 @@
 				<div class="p-4 pt-5">
 		  		<a href="#" class="img logo rounded-circle mb-5" style="background-image: url(https://us.123rf.com/450wm/arbuzu/arbuzu1607/arbuzu160700095/60765606-letter-f-heart-icon-design-template-elements.jpg?ver=6);"></a>
                   <h3 id="frate">Frate</h3>
+                  <h4 id="welcome">Hello <%= @current_user.name %> </h4>
 
           <br>
                   <ul class="list-unstyled components mb-5">
