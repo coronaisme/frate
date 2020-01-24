@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :matches
   resources :homes
 
+  get '/homes/homepage', to: 'homes#index'
+
   get '/users/:id/reviews', to: 'reviews#index'
   
   patch '/add_friend/:id', to: 'users#add_friend' 
