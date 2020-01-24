@@ -8,8 +8,11 @@ Rails.application.routes.draw do
   delete 'analytics/index', to: 'sessions#destroy'
   post '/users/:id', to: 'users#remove_friend'
   get '/users/:id', to: 'users#remove_friend'
-  
+
   patch '/add_friend_profile/:id', to: 'users#add_friend_profile'
+
+  patch '/remove_friend_profile/:id', to: 'users#remove_friend_profile'
+  post '/remove_friend_profile/:id', to: 'users#remove_friend_profile' 
   resources :reviews
   resources :sessions
   resources :analytics
@@ -23,6 +26,7 @@ Rails.application.routes.draw do
   get '/users/:id/reviews', to: 'reviews#index'
   
   patch '/add_friend/:id', to: 'users#add_friend' 
+  
 
   get 'login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -33,5 +37,4 @@ Rails.application.routes.draw do
   end
 
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

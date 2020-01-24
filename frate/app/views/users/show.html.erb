@@ -140,7 +140,7 @@
               <%= link_to "My Reviews", "/users/#{current_user.id}/reviews" %>             
 	          </li>
             <li>
-            <%= link_to("Logout", homes_path(@homes), method: :get) %>
+            <%= link_to "Logout", {:controller=> 'sessions', :action=> "destroy"}, :method=> :delete%><br>
              </li>
 	        </ul>
 
@@ -297,10 +297,10 @@
   <% end %>
 <% end %>
 
-<!-- remove a friend 
+<!-- remove a friend -->
 <% if @current_user.id != params[:id].to_i %>
-<%= button_to "Remove this Friend", :controller => :users, :action => 'remove_friend' %>
-<% end %> -->
+<%= button_to "Remove this Friend", :controller => :users, :action => 'remove_friend_profile' %>
+<% end %> 
 
 
 

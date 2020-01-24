@@ -51,7 +51,7 @@ class UsersController < ApplicationController
     render :edit
    end
   end
-  
+
       #not working yet
   # def remove_friend
   #   @user = User.find(params[:id])
@@ -73,6 +73,13 @@ class UsersController < ApplicationController
     @current_user.friends << @user
     redirect_to @user
   end
+
+  # def remove_friend_profile
+  #   @user = User.find(params[:id])
+  #   @current_user.friendes.splice(@user)
+  #   @current_user.friends.splice(@user)
+  #   redirect_to @user
+  # end
  
 
   def destroy
