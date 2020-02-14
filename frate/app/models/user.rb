@@ -36,6 +36,7 @@ class User < ApplicationRecord
         (average / User.all.count).round
     end
 
+   
 
 
     def not_reviewed
